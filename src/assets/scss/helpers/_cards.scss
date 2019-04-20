@@ -1,0 +1,29 @@
+.card {
+  border: none !important;
+}
+
+.card,
+.card-header,
+.card-footer,
+.card-body {
+  background-color: #fff;
+  font-size: 14px;
+}
+
+.card-header {
+  &:not(:first-child) {
+    border-bottom: none !important;
+  }
+}
+
+.card-footer {
+  padding: 0.25rem 0.5rem;
+}
+
+.card-side-image {
+  width: 50%;
+  .side-img {
+    height: 100%;
+    width: 100%;
+  }
+}

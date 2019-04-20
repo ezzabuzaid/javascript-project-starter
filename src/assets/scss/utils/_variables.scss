@@ -1,0 +1,22 @@
+$app_colors: ();
+$app_theme: ();
+$breakPoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+$layout_layers: (
+  toolbar: 9999,
+  navbar: 9999,
+  content: 9999,
+  footer: 9999
+);
+$layout_dimensions: (
+  toolbar-height: 60px,
+  navbar-width: 17%,
+  navbar-mobile-width: 75%,
+  navbar-table-width: 50%,
+  navbar-folded-width: 6%,
+  footer_height: 55px
+);

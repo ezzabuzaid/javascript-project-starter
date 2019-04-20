@@ -9,8 +9,6 @@ module.exports = () => gulp.task('minify-html', () => {
             collapseWhitespace: true,
             useShortDoctype: true,
             removeStyleLinkTypeAttributes: true,
-            removeComments: false,
-            // ignoreCustomComments
         }))
         .pipe(gulp.dest(configuration.paths.dist.entry));
 });

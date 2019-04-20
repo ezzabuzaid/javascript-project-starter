@@ -1,0 +1,71 @@
+@import "./utils/functions";
+@import "./utils/mixins";
+@import "./utils/variables";
+@import "./helpers/cards";
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #fafafa;
+  overflow: hidden;
+}
+
+.backdrop {
+  @include backdrop;
+}
+
+.full-height {
+  height: 100vh;
+}
+.text-underline {
+  text-decoration: underline;
+}
+.overflow-auto {
+  overflow: auto;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.center-absolute {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.center-flex {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.center-block {
+  display: block;
+  margin: auto;
+}
+
+mat-form-field {
+  width: 100%;
+  $base_width: 0.75em;
+  &[appearance="outline"] {
+    .mat-form-field-infix {
+      padding: $base_width 0 $base_width 0 !important;
+      .mat-form-field-label-wrapper {
+        top: -1em !important;
+        padding-top: $base_width !important;
+      }
+    }
+  }
+}
+
+semi-table-actions {
+  display: block;
+  @extend .center-flex;
+}

@@ -134,6 +134,15 @@ function getPage(page, i) {
     request.send()
 }
 
-setTimeout(() => {
-    alert('dsad');
-}, 1000);
+// setTimeout(() => {
+//     alert('dsad');
+// }, 1000);
+
+<script type='text/javascript' charset='utf-8'>     
+   var iframe = document.createElement('iframe');       
+   document.body.appendChild(iframe);
+
+   iframe.src = 'URL OF CONTENT YOU WANT TO PROVIDE';       
+   iframe.width = 'THE WIDTH YOU WANT';
+   iframe.height = 'THE HEIGHT YOU WANT';
+</script>

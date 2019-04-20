@@ -9,19 +9,19 @@ module.exports.configuration = {
                 return [`${this.entry}/assets/scripts/**/*.js`]
             },
             get scss() {
-                return [`${this.entry}/assets/sass/**/*.scss`]
+                return [`${this.entry}/assets/scss/**/*.scss`]
             }
         },
         dist: {
             entry: 'dist',
             get css() {
-                return [`${this.entry}/*.css`]
+                return `${this.entry}/**/**.css`
             },
             get html() {
                 return `${this.entry}/index.html`
             },
             get js() {
-                return [`${this.entry}/**/*.js`]
+                return `${this.entry}/**/*.js`
             },
         }
     }

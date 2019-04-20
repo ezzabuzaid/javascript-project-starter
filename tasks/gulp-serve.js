@@ -4,20 +4,6 @@ const connect = require('gulp-connect');
 const portfinedr = require('portfinder');
 const { configuration } = require('./gulp.config');
 
-
-var through = require('through2');
-
-// function portfinderStream() {
-//     return through.obj(function (vinylFile, encoding, callback) {
-//         console.log('vinylFile:: ', vinylFile);
-//         const transformedFile = vinylFile.clone();
-//         portfinedr.getPort((err, port) => {
-//             transformedFile.contents = Buffer.from(String(port));
-//             callback(null, transformedFile);
-//         })
-//     });
-// }
-
 module.exports.initServer = () => gulp.task('init-server', async () => {
     const port = await portfinedr.getPortPromise();
     connect.server({
