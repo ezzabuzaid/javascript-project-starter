@@ -1,40 +1,33 @@
 const gulp = require("gulp");
 const { configuration } = require('./tasks/gulp.config');
 
-// remove dist folder
-require('./tasks/gulp-clean')();
+const clean = require('./tasks/gulp-clean');
+const minifyJS = require('./tasks/gulp-minify-js');
+const compleSASS = require('./tasks/gulp-compile-sass');
+const html = require('./tasks/gulp-html');
+const minifyCSS = require('./tasks/gulp-minify-css');
 
-require('./tasks/gulp-minify-js')();
-require('./tasks/gulp-html')();
 
-require('./tasks/gulp-compile-sass').compile();
-require('./tasks/gulp-minify-css')();
 
-// Inject css and js file
+// TODO watch sass not work
+// TODO Inject css and js file
 require('./tasks/gulp-inject')();
 
-require('./tasks/gulp-serve').openBrowser();
-require('./tasks/gulp-serve').initServer();
-require('./tasks/gulp-serve').reload();
-// require('./tasks/gulp-watch')();
+const server = require('./tasks/gulp-serve');
+server.openBrowser();
+server.initServer();
+server.reload();
 
 
-
-const TASK_LIST = ['clean', ['minify-compress-js', 'compile-sass'], ['prefix-minify-css'], 'minify-html'];
-
+const TASK_LIST = [clean.name, [minifyJS.name, compleSASS.name], minifyCSS.name, html.name];
 const sugar = (...a) => gulp.series(...a.map((i) => Array.isArray(i) ? gulp.parallel(...i) : i));
-
-
 
 gulp.task('watch', function () {
     gulp.watch(`${configuration.paths.src.entry}/**/*`, sugar(...TASK_LIST, 'reload-server'))
 });
 
-
 gulp.task("default", sugar(...TASK_LIST, 'init-server', 'watch'));
 
-
 /**
- * ! export each task name from file rather explicty define them here
  * ! use browserSync plugin to avoid exclude the task the responsible for open the browser
  */

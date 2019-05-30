@@ -5,3 +5,5 @@
 5_ firebase
 6_ use travise to automate deploying to githup
 7_ compile typescript
+8_ export task name with each file
+9_ connect css rtl gulp plugin

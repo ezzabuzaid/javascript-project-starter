@@ -6,11 +6,13 @@ const minifyJS = require('gulp-minify'); // will create to file for min and unmi
 const uglify = require('gulp-uglify-es').default;
 const { configuration } = require('./gulp.config');
 
-module.exports = () => gulp.task('minify-compress-js', () => {
+
+exports.name = 'minify-compress-js';
+exports.func = gulp.task(exports.name, () => {
     return gulp.src(configuration.paths.src.js)
         // .pipe(minifyJS())
         .pipe(uglify())
         .pipe(rev())
-        .pipe(inject.before('<body', `<script src="${dest}"></script>`))
+        // .pipe(inject.before('<body', `<script src="${dest}"></script>`))
         .pipe(gulp.dest(configuration.paths.dist.entry))
 });

@@ -7,7 +7,8 @@ const { configuration } = require('./gulp.config');
 
 sass.compiler = require('node-sass');
 
-module.exports.compile = () => gulp.task('compile-sass', () => {
+exports.name = 'compile-sass';
+exports.compile = gulp.task(exports.name, () => {
     return gulp.src(configuration.paths.src.scss)
         .pipe(
             sass({
@@ -20,6 +21,6 @@ module.exports.compile = () => gulp.task('compile-sass', () => {
         .pipe(gulp.dest(configuration.paths.dist.entry))
 });
 
-module.exports.watch = () => gulp.task('sass:watch', () => {
+exports.watch = () => gulp.task('sass:watch', () => {
     gulp.watch(configuration.paths.src.scss, ['sass']);
 });

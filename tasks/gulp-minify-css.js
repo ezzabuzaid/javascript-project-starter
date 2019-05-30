@@ -15,7 +15,10 @@ const AUTOPREFIXER_BROWSERS = [
     'bb >= 10'
 ];
 
-module.exports = () => gulp.task('prefix-minify-css', () => {
+// const rtlcss = require('gulp-rtlcss');
+// .pipe(rtlcss())
+exports.name = 'prefix-minify-css';
+exports.func = gulp.task(exports.name, () => {
     return gulp.src(configuration.paths.dist.css)
         .pipe(autoprefixer({ browsers: AUTOPREFIXER_BROWSERS }))
         .pipe(csso())
